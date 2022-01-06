@@ -20,7 +20,7 @@ public:
     inline static HAMqtt* instance()
         { return _instance; }
 
-    HAMqtt(Client& netClient, HADevice& device);
+    HAMqtt(arduino::Client& netClient, HADevice& device);
 
     /**
      * Sets prefix for Home Assistant discovery.
@@ -221,7 +221,7 @@ private:
      */
     void onConnectedLogic();
 
-    Client& _netClient;
+    arduino::Client& _netClient;
     HADevice& _device;
     HAMQTT_MESSAGE_CALLBACK(_messageCallback);
     HAMQTT_CALLBACK(_connectedCallback);
